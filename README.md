@@ -62,10 +62,12 @@ Anaconda - Python 3.7
       o	Save the final modified image to your local directory.
 
 
-## Program:
+## Program and Output:
 
-### Developed By: Anbuselvan.S
-### Register Number: 2122233240008
+#### Developed by: Anbuselvan.S
+#### Register No: 212223240008
+
+### i)Read and Display an Image:
 
 ```
 import cv2
@@ -73,103 +75,158 @@ import cv2
 image = cv2.imread('ofc pic 2.jpg') 
 cv2.imshow('Original Image(Anbuselvan)', image)
 cv2.waitKey(0)
+```
 
-cv2.line(image, (0, 0), (image.shape[1], image.shape[0]), (255, 0, 0), 5)
+![Screenshot 2024-09-16 083051](https://github.com/user-attachments/assets/96e048d3-a02e-4d9c-96f4-6e0f5cf615b0)
 
-center_x, center_y = image.shape[1] // 2, image.shape[0] // 2
+### ii)Draw Shapes and Add Text:
 
-cv2.circle(image, (center_x, center_y), 50, (0, 255, 0), 5)
+#### line:
 
-cv2.rectangle(image, (50, 50), (150, 150), (0, 0, 255), 5)
+```
+image.shape
 
-cv2.putText(image, 'OpenCV Drawing', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
-
-cv2.imshow('Image with Drawing', image)
+cv2.line(image, (0, 0), (1007,978), (255, 0, 0), 5)
+cv2.imshow('Image with Drawing(Anbuselvan)', image)
 cv2.waitKey(0)
+```
 
+![Screenshot 2024-09-23 091603](https://github.com/user-attachments/assets/16bef3d6-a0e0-4fdf-ba6b-90cbe4a45434)
+
+#### circle:
+
+```
+cv2.circle(image, (489,500), 50, (0, 255, 0), 5)
+cv2.imshow('Image with Drawing(Anbuselvan)', image)
+cv2.waitKey(0)
+```
+
+![image](https://github.com/user-attachments/assets/ea8a83a1-77cb-4bcf-9874-936bd8cfc2e8)
+
+### Rectangle:
+
+```
+cv2.rectangle(image, (200,200), (489,500), (0, 0, 255), 5)
+cv2.imshow('Image with Drawing(Anbuselvan)', image)
+cv2.waitKey(0)
+```
+
+![image](https://github.com/user-attachments/assets/78d9161e-98e3-4849-9903-3e492bbb291e)
+
+#### Text:
+
+```
+cv2.putText(image, 'OpenCV Drawing', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
+cv2.imshow('Image with Drawing(Anbuselvan)', image)
+cv2.waitKey(0)
+```
+
+![image](https://github.com/user-attachments/assets/a3846dfc-f1a1-419a-93f0-295f0025d586)
+
+### iii)Image Color Conversion:
+
+#### HSV image:
+
+```
 hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 cv2.imshow('HSV Image', hsv_image)
 cv2.waitKey(0)
+```
 
+![image](https://github.com/user-attachments/assets/75414cec-1907-4509-8d62-656ae5138fb8)
+
+#### Gray image:
+
+```
 gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 cv2.imshow('Gray Image', gray_image)
 cv2.waitKey(0)
+```
+![image](https://github.com/user-attachments/assets/fa18c38c-8c76-4e16-a92d-039520c99367)
 
+#### YCrCb image:
+
+```
 ycrcb_image = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
 cv2.imshow('YCrCb Image', ycrcb_image)
 cv2.waitKey(0)
+```
 
+![image](https://github.com/user-attachments/assets/4c647ff0-8b37-4e3d-84c4-d438f63e7101)
+
+#### RGB from HSV:
+
+```
 rgb_from_hsv = cv2.cvtColor(hsv_image, cv2.COLOR_HSV2BGR)
 cv2.imshow('RGB from HSV', rgb_from_hsv)
 cv2.waitKey(0)
+```
 
+![image](https://github.com/user-attachments/assets/b3cce76d-ee10-49ed-96d7-4c5088f56abc)
+
+### iv)Access and Manipulate Image Pixels:
+
+```
 pixel_value = image[100, 100]
 print(f'Pixel value at (100, 100): {pixel_value}')
 
 image[200, 200] = [255, 255, 255]
+```
 
-resized_image = cv2.resize(image, (image.shape[1] // 2, image.shape[0] // 2))
+![Screenshot 2024-09-16 083806](https://github.com/user-attachments/assets/76864aa7-fb04-4e23-adcd-a301b2cfa1a0)
+
+### v)Image Resizing:
+
+```
+resized_image = cv2.resize(image, (489,500))
 cv2.imshow('Resized Image (Half Size)', resized_image)
 cv2.waitKey(0)
+```
 
-roi = image[50:150, 50:150]  
+![image](https://github.com/user-attachments/assets/a98bb39b-3963-48b1-bf70-bcb296f41d15)
+
+### vi)Image Cropping:
+
+```
+roi = image[100:489, 100:1000]  
 cv2.imshow('Cropped ROI', roi)
 cv2.waitKey(0)
+```
 
+![image](https://github.com/user-attachments/assets/edddfcb3-e915-42df-8900-f50098d84f7d)
+
+### vii)Image Flipping:
+
+#### Horizontal:
+
+```
 flipped_horizontally = cv2.flip(image, 1)
-flipped_vertically = cv2.flip(image, 0)
 
 cv2.imshow('Flipped Horizontally', flipped_horizontally)
 cv2.waitKey(0)
 
+```
+![image](https://github.com/user-attachments/assets/aeb27eed-b7fa-4ef5-908b-ef5372953ac0)
+
+#### Vertical:
+
+```
+flipped_vertically = cv2.flip(image, 0)
+
 cv2.imshow('Flipped Vertically', flipped_vertically)
 cv2.waitKey(0)
+```
 
+![image](https://github.com/user-attachments/assets/530e1822-9c51-4ce9-9a7f-19d96386b505)
+
+### viii)Write and Save the Modified Image:
+
+```
 cv2.imwrite('modified_image.jpg', image)
 
 cv2.destroyAllWindows()
 ```
 
-## Output:
-
-### i)Read and Display an Image:
-![Screenshot 2024-09-16 083051](https://github.com/user-attachments/assets/96e048d3-a02e-4d9c-96f4-6e0f5cf615b0)
-
-### ii)Draw Shapes and Add Text:
-![Screenshot 2024-09-16 083531](https://github.com/user-attachments/assets/eb2a672c-2be7-47fd-8905-623a8aa48f16)
-
-### iii)Image Color Conversion:
-
-#### HSV image:
-![Screenshot 2024-09-16 083613](https://github.com/user-attachments/assets/49596ead-4c5e-4f64-b8de-46b013eb7048)
-
-#### Gray image:
-![Screenshot 2024-09-16 083643](https://github.com/user-attachments/assets/99f5ea37-9ec8-4fd8-85b5-a3645d9ae6cc)
-
-#### YCrCb image:
-![Screenshot 2024-09-16 083709](https://github.com/user-attachments/assets/6b747454-3d46-4f53-8ace-5b4649440fee)
-
-#### RGB from HSV:
-![Screenshot 2024-09-16 083740](https://github.com/user-attachments/assets/044d94d5-68c1-401b-8838-e3e8eb21c180)
-
-### iv)Access and Manipulate Image Pixels:
-![Screenshot 2024-09-16 083806](https://github.com/user-attachments/assets/76864aa7-fb04-4e23-adcd-a301b2cfa1a0)
-
-### v)Image Resizing:
-![Screenshot 2024-09-16 083844](https://github.com/user-attachments/assets/d2b77411-8698-4f5a-b902-d5d6de66f36e)
-
-### vi)Image Cropping:
-![Screenshot 2024-09-16 083917](https://github.com/user-attachments/assets/bc02a723-0706-4773-b578-1113a662dd5f)
-
-### vii)Image Flipping:
-
-#### Horizontal:
-![Screenshot 2024-09-16 083956](https://github.com/user-attachments/assets/81cfaaa2-5185-4fea-a714-da79c0bd870d)
-
-#### Vertical:
-![Screenshot 2024-09-16 084025](https://github.com/user-attachments/assets/bd25bf76-ede9-4ebe-b38d-693b7d169388)
-
-### viii)Write and Save the Modified Image:
 ![Screenshot 2024-09-16 084957](https://github.com/user-attachments/assets/2f525971-40ad-4e88-a25e-51350e9840a7)
 ![Screenshot 2024-09-16 085018](https://github.com/user-attachments/assets/9d65935d-090d-41e4-8218-814d6ae7a683)
 
