@@ -111,7 +111,7 @@ cv2.imshow('Image with Drawing(Anbuselvan)', image)
 cv2.waitKey(0)
 ```
 
-![image](https://github.com/user-attachments/assets/78d9161e-98e3-4849-9903-3e492bbb291e)
+![image](https://github.com/user-attachments/assets/ac26d5fa-5b03-4ddc-97a7-24d06943df67)
 
 #### Text:
 
